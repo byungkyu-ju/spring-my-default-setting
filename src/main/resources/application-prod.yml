@@ -1,0 +1,7 @@
+server:
+  port: 18080
+application:
+  environment : prod
+spring:
+  profiles:
+    active: prod

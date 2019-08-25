@@ -1,16 +1,16 @@
-package me.andrew.springmydefaultsetting.config.dev;
+package me.andrew.springmydefaultsetting.core.config.prod;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Profile("dev")
+@Profile("prod")
 @Configuration
-public class DevBaseConfiguration {
+public class ProdBaseConfiguration {
 
     @Bean
     public String baseConfiguration(){
-        String message = "this is dev";
+        String message = "this is prod";
         return message;
     }
 }

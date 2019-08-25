@@ -1,7 +1,18 @@
 package me.andrew.springmydefaultsetting.common.domain;
 
+import lombok.*;
+import me.andrew.springmydefaultsetting.core.domain.BaseDomain;
 
-public class UserDomain extends DefaultDomain{
+@Getter
+@Setter
+public class UserDomain extends BaseDomain {
 
-    private long userId;
+    private String id;
+    private String email;
+    private String password;
+    private String firstName;
+    private String lastName;
+
+
+
 }

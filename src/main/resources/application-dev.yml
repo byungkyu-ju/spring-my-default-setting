@@ -1,0 +1,7 @@
+server:
+    port: 18080
+application:
+    environment : dev
+spring:
+    profiles:
+        active: dev
