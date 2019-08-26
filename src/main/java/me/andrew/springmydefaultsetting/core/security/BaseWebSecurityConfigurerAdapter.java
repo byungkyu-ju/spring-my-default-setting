@@ -1,4 +1,4 @@
-package me.andrew.springmydefaultsetting.core.config.base;
+package me.andrew.springmydefaultsetting.core.security;
 
 import me.andrew.springmydefaultsetting.core.security.BaseAuthenticationProvider;
 import me.andrew.springmydefaultsetting.core.security.BaseUserDetailsService;
@@ -20,7 +20,7 @@ import org.springframework.security.oauth2.provider.token.store.InMemoryTokenSto
 
 @Configuration
 @EnableWebSecurity
-public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
+public class BaseWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
     @Autowired
     BaseUserDetailsService baseUserDetailsService;
@@ -49,7 +49,6 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().mvcMatchers("/");
         webSecurity.ignoring().anyRequest();
         webSecurity.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
