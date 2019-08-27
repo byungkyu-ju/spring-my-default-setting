@@ -12,6 +12,6 @@ public class LoginService {
     BaseUserDetailsService baseUserDetailsService;
 
     public void login(UserDomain user){
-        baseUserDetailsService.loadUserByUsername(user.getId());
+        baseUserDetailsService.loadUserByUsername(user.getEmail());
     }
 }

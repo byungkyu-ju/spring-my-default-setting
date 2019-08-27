@@ -1,7 +1,7 @@
 package me.andrew.springmydefaultsetting.common.domain;
 
 import lombok.*;
-import me.andrew.springmydefaultsetting.core.domain.BaseDomain;
+import me.andrew.springmydefaultsetting.core.config.base.BaseDomain;
 
 @Getter
 @Setter
