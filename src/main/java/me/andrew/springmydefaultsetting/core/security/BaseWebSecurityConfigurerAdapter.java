@@ -38,14 +38,15 @@ public class BaseWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(baseUserDetailsService)
+    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+        authenticationManagerBuilder.userDetailsService(baseUserDetailsService)
                 .passwordEncoder(passwordEncoder());
+
     }
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception {
-        webSecurity.ignoring().anyRequest();
-        webSecurity.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+        //webSecurity.ignoring().anyRequest();
+        //webSecurity.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
 }
