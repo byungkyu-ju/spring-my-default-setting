@@ -12,7 +12,7 @@ public class UserDAO {
 
     SqlSession sqlSession;
 
-    public List<User> findUserByEmail(String email){
+    public List<User> findUserByEmailList(String email){
         return sqlSession.selectList("UserMapper.findUserByEmailList",email);
     }
 }

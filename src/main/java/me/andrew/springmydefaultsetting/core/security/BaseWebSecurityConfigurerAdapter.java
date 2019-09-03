@@ -41,10 +41,13 @@ public class BaseWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
-                .mvcMatchers("/").permitAll()
+                .mvcMatchers("/","/h2-console","/h2-console/**").permitAll()
                 .mvcMatchers("/admin").hasRole("ADMIN")
-                .anyRequest().authenticated();
+                //.anyRequest().authenticated();
+                .anyRequest().anonymous();
 
+        httpSecurity.csrf().disable();
+        httpSecurity.headers().frameOptions().sameOrigin();
         httpSecurity.formLogin();
         httpSecurity.httpBasic();
     }

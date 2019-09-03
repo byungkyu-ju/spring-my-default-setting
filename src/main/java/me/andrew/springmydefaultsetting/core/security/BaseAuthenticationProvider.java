@@ -10,7 +10,6 @@ public class BaseAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication){
-        System.out.println("1234");
         String id = authentication.getName();
         //UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
           //      (UsernamePasswordAuthenticationToken) authentication;

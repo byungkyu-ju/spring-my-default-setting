@@ -20,7 +20,7 @@ public class BaseUserDetailsService implements UserDetailsService {
         User user = new User();
         List<User> userList = userDAO.findUserByEmailList(email);
         if(userList == null) {
-            throws UsernameNotFoundException(email);
+            throw new UsernameNotFoundException(email);
         }
 
         if(userList.size() == 1){
