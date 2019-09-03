@@ -6,20 +6,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
 
-@Component
+@Service
 public class BaseUserDetailsService implements UserDetailsService {
     @Autowired
     UserDAO userDAO;
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        List<User> userList = userDAO.findUserByEmail(email);
-        User user = userList.get(0);
+        User user = new User();
+        List<User> userList = userDAO.findUserByEmailList(email);
+        if(userList == null) {
+            throws UsernameNotFoundException(email);
+        }
+
+        if(userList.size() == 1){
+            user = userList.get(0);
+        }
+
         return user;
     }
 }

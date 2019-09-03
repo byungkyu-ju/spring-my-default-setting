@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -38,15 +39,14 @@ public class BaseWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
     }
 
     @Override
-    protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
-        authenticationManagerBuilder.userDetailsService(baseUserDetailsService)
-                .passwordEncoder(passwordEncoder());
+    public void configure(HttpSecurity httpSecurity) throws Exception {
+        httpSecurity.authorizeRequests()
+                .mvcMatchers("/").permitAll()
+                .mvcMatchers("/admin").hasRole("ADMIN")
+                .anyRequest().authenticated();
 
+        httpSecurity.formLogin();
+        httpSecurity.httpBasic();
     }
 
-    @Override
-    public void configure(WebSecurity webSecurity) throws Exception {
-        //webSecurity.ignoring().anyRequest();
-        //webSecurity.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
-    }
 }
