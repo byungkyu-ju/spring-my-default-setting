@@ -19,3 +19,7 @@ mybatis:
     map-underscore-to-camel-case: true
     jdbc-type-for-null: null
     call-setters-on-nulls: true
+logging :
+  level :
+    root : DEBUG
+    me.andrew: DEBUG

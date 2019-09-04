@@ -48,7 +48,8 @@ public class BaseWebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapt
 
         httpSecurity.csrf().disable();
         httpSecurity.headers().frameOptions().sameOrigin();
-        httpSecurity.formLogin();
+        httpSecurity.formLogin()
+                    .usernameParameter("email");
         httpSecurity.httpBasic();
     }
 

@@ -2,6 +2,8 @@ package me.andrew.springmydefaultsetting.core.security;
 
 import me.andrew.springmydefaultsetting.common.domain.User;
 import me.andrew.springmydefaultsetting.common.repository.mybatis.UserDAO;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,6 +14,8 @@ import java.util.List;
 
 @Service
 public class BaseUserDetailsService implements UserDetailsService {
+
+    private Logger logger = LoggerFactory.getLogger(BaseUserDetailsService.class);
     @Autowired
     UserDAO userDAO;
 
@@ -22,11 +26,10 @@ public class BaseUserDetailsService implements UserDetailsService {
         if(userList == null) {
             throw new UsernameNotFoundException(email);
         }
-
+        logger.info("@@@@@@@@@@@@@@@@@@@@@@ : " + userList.size());
         if(userList.size() == 1){
             user = userList.get(0);
         }
-
         return user;
     }
 }
