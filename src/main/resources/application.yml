@@ -1,7 +1,12 @@
+#server
 server:
   port: 18080
+
+#application
 application:
   environment : dev
+
+#spring
 spring:
   profiles:
       active: dev
@@ -13,13 +18,7 @@ spring:
   h2:
     console:
       enabled: true
-mybatis:
-  mapper-locations: classpath*:/mybatis/**/*.xml
-  configuration:
-    map-underscore-to-camel-case: true
-    jdbc-type-for-null: null
-    call-setters-on-nulls: true
-logging :
-  level :
-    root : DEBUG
-    me.andrew: DEBUG
+logging:
+  level:
+    root: DEBUG
+    org.springframework.jdbc.core: TRACE

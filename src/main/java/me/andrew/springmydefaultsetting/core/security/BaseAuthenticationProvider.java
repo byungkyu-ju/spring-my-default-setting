@@ -1,6 +1,5 @@
 package me.andrew.springmydefaultsetting.core.security;
 
-import me.andrew.springmydefaultsetting.SpringMyDefaultSettingApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +22,6 @@ public class BaseAuthenticationProvider implements AuthenticationProvider {
 
         String email = authentication.getName();
         String password = (String)authentication.getCredentials();
-
         UserDetails user = baseUserDetailsService.loadUserByUsername(email);
         //usernamePasswordAuthenticationToken.
         //return new UsernamePasswordAuthenticationToken(UserDomain,null );
