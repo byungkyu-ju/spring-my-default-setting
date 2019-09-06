@@ -11,8 +11,7 @@ public class AccountService {
     AccountRepository accountRepository;
 
     public Account findByEmail(String email) {
-      //Account account = accountRepository.findByEmail(email);
-      //return account;
-      return null;
+      Account account = accountRepository.findByEmail(email);
+      return account;
     }
 }

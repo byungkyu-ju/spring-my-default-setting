@@ -18,7 +18,13 @@ spring:
   h2:
     console:
       enabled: true
+  jpa:
+    properties:
+      hibernate :
+        ddl_auto : create #create/validate
+        format_sql : true
+    show-sql: true
 logging:
   level:
     root: DEBUG
-    org.springframework.jdbc.core: TRACE
+    org.hibernate.type.descriptor.sql : trace
